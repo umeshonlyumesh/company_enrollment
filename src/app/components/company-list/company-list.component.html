@@ -1,0 +1,69 @@
+<div class="container bg-white shadow-md rounded-lg p-6 my-8">
+  <h1>Company Enrollment</h1>
+
+  <div class="search-container">
+    <div class="relative w-full md:w-auto">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        placeholder="Search companies..."
+        (input)="search()"
+        class="search-input pl-10"
+      >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 top-2.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    </div>
+    <a [routerLink]="['/company/new']" class="btn btn-primary flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+      </svg>
+      Add New Company
+    </a>
+  </div>
+
+  <div *ngIf="filteredCompanies.length === 0" class="no-results">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-truist-blue mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <p>No companies found. Please add a new company or try a different search term.</p>
+  </div>
+
+  <div *ngIf="filteredCompanies.length > 0" class="table-responsive">
+    <table class="company-table">
+      <thead>
+        <tr>
+          <th class="rounded-tl-lg">Primary Client ID</th>
+          <th>Primary Client Name</th>
+          <th>Secondary Client Name</th>
+          <th>User ID</th>
+          <th>Address</th>
+          <th class="rounded-tr-lg">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let company of filteredCompanies; let i = index" [ngClass]="{'bg-truist-gray/30': i % 2 === 0}">
+          <td>{{ company.primaryClientId }}</td>
+          <td>{{ company.primaryClientName }}</td>
+          <td>{{ company.secondaryClientNameA }}</td>
+          <td>{{ company.userId }}</td>
+          <td>{{ company.physicalBusinessAddress }}, {{ company.cityA }}, {{ company.stateA }} {{ company.zipA }}</td>
+          <td class="actions">
+            <a [routerLink]="['/company', company.id]" class="btn btn-info">
+              <span class="hidden sm:inline">View</span>
+              <span class="sm:hidden">👁️</span>
+            </a>
+            <a [routerLink]="['/company/edit', company.id]" class="btn btn-warning">
+              <span class="hidden sm:inline">Edit</span>
+              <span class="sm:hidden">✏️</span>
+            </a>
+            <button (click)="deleteCompany(company.id!)" class="btn btn-danger">
+              <span class="hidden sm:inline">Delete</span>
+              <span class="sm:hidden">🗑️</span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+/* Using Tailwind classes for detail component styling */
+
+h1 {
+  @apply text-2xl font-bold text-truist-purple m-0;
+}
+
+h2 {
+  @apply text-lg font-semibold text-truist-blue mt-0 mb-4 pb-2 border-b border-gray-200;
+}
+
+.header {
+  @apply flex justify-between items-center mb-6 flex-wrap;
+}
+
+.actions {
+  @apply flex gap-3 flex-wrap;
+}
+
+.company-details {
+  @apply bg-white rounded-lg shadow-md overflow-hidden;
+}
+
+.detail-section {
+  @apply p-6 border-b border-gray-200;
+}
+
+.detail-section:last-child {
+  @apply border-b-0;
+}
+
+.detail-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.detail-item {
+  @apply mb-4;
+}
+
+.detail-label {
+  @apply font-semibold text-truist-dark-gray mb-1;
+}
+
+.detail-value {
+  @apply text-base text-gray-800 mb-1;
+}
+
+.detail-description {
+  @apply text-sm text-gray-500 italic;
+}
+
+@media (max-width: 768px) {
+  .header {
+    @apply flex-col items-start;
+  }
+
+  .actions {
+    @apply mt-3;
+  }
+
+  .detail-grid {
+    @apply grid-cols-1;
+  }
+}

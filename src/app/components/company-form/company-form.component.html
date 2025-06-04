@@ -1,0 +1,230 @@
+<div class="container bg-white shadow-md rounded-lg p-6 my-8">
+  <div class="flex items-center mb-6">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-truist-purple mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+    </svg>
+    <h1>{{ isEditMode ? 'Edit' : 'Add' }} Company</h1>
+  </div>
+
+  <form [formGroup]="companyForm" (ngSubmit)="onSubmit()" class="company-form">
+    <div class="form-grid">
+      <!-- Client API -->
+      <div class="form-group">
+        <label for="clientApi">Client API <span class="required">*</span></label>
+        <input type="text" id="clientApi" formControlName="clientApi" class="form-control">
+        <div *ngIf="isFieldInvalid('clientApi')" class="error-message">
+          Client API is required
+        </div>
+      </div>
+
+      <!-- Action Type -->
+      <div class="form-group">
+        <label for="actionType">Action Type <span class="required">*</span></label>
+        <select id="actionType" formControlName="actionType" class="form-control">
+          <option [value]="actionTypes.ADD">Add (A)</option>
+          <option [value]="actionTypes.CHANGE">Change (C)</option>
+          <option [value]="actionTypes.DELETE">Delete (D)</option>
+        </select>
+        <div *ngIf="isFieldInvalid('actionType')" class="error-message">
+          Action Type is required
+        </div>
+      </div>
+
+      <!-- Primary Client ID -->
+      <div class="form-group">
+        <label for="primaryClientId">Primary Client ID <span class="required">*</span></label>
+        <input type="text" id="primaryClientId" formControlName="primaryClientId" class="form-control">
+        <div *ngIf="isFieldInvalid('primaryClientId')" class="error-message">
+          Primary Client ID is required
+        </div>
+      </div>
+
+      <!-- Primary Client Name -->
+      <div class="form-group">
+        <label for="primaryClientName">Primary Client Name <span class="required">*</span></label>
+        <input type="text" id="primaryClientName" formControlName="primaryClientName" class="form-control">
+        <div *ngIf="isFieldInvalid('primaryClientName')" class="error-message">
+          Primary Client Name is required
+        </div>
+      </div>
+
+      <!-- Secondary Client ID -->
+      <div class="form-group">
+        <label for="secondaryClientId">Secondary Client ID <span class="required">*</span></label>
+        <input type="text" id="secondaryClientId" formControlName="secondaryClientId" class="form-control">
+        <div *ngIf="isFieldInvalid('secondaryClientId')" class="error-message">
+          Secondary Client ID is required
+        </div>
+      </div>
+
+      <!-- Secondary Client Name A -->
+      <div class="form-group">
+        <label for="secondaryClientNameA">Secondary Client Name A <span class="required">*</span></label>
+        <input type="text" id="secondaryClientNameA" formControlName="secondaryClientNameA" class="form-control">
+        <div *ngIf="isFieldInvalid('secondaryClientNameA')" class="error-message">
+          Secondary Client Name A is required
+        </div>
+      </div>
+
+      <!-- Secondary Client Name B -->
+      <div class="form-group">
+        <label for="secondaryClientNameB">Secondary Client Name B</label>
+        <input type="text" id="secondaryClientNameB" formControlName="secondaryClientNameB" class="form-control">
+      </div>
+
+      <!-- Additional Client ID -->
+      <div class="form-group">
+        <label for="additionalClientId">Additional Client ID</label>
+        <input type="text" id="additionalClientId" formControlName="additionalClientId" class="form-control">
+      </div>
+
+      <!-- Additional Client Name D -->
+      <div class="form-group">
+        <label for="additionalClientNameD">Additional Client Name D</label>
+        <input type="text" id="additionalClientNameD" formControlName="additionalClientNameD" class="form-control">
+      </div>
+
+      <!-- UserID -->
+      <div class="form-group">
+        <label for="userId">User ID <span class="required">*</span></label>
+        <input type="text" id="userId" formControlName="userId" class="form-control">
+        <div *ngIf="isFieldInvalid('userId')" class="error-message">
+          User ID is required
+        </div>
+      </div>
+
+      <!-- Publicly Traded A -->
+      <div class="form-group">
+        <label for="publiclyTradedA">Publicly Traded A</label>
+        <select id="publiclyTradedA" formControlName="publiclyTradedA" class="form-control">
+          <option value="">Select</option>
+          <option value="Y">Yes (Y)</option>
+          <option value="N">No (N)</option>
+        </select>
+      </div>
+
+      <!-- Exchange Name/Stock Symbol A -->
+      <div class="form-group">
+        <label for="exchangeNameStockSymbolA">Exchange Name/Stock Symbol A</label>
+        <input type="text" id="exchangeNameStockSymbolA" formControlName="exchangeNameStockSymbolA" class="form-control">
+      </div>
+
+      <!-- Annual Revenue A -->
+      <div class="form-group">
+        <label for="annualRevenueA">Annual Revenue A</label>
+        <input type="text" id="annualRevenueA" formControlName="annualRevenueA" class="form-control">
+      </div>
+
+      <!-- Website Address A -->
+      <div class="form-group">
+        <label for="websiteAddressA">Website Address A</label>
+        <input type="text" id="websiteAddressA" formControlName="websiteAddressA" class="form-control">
+      </div>
+
+      <!-- Physical Business Address -->
+      <div class="form-group">
+        <label for="physicalBusinessAddress">Physical Business Address <span class="required">*</span></label>
+        <input type="text" id="physicalBusinessAddress" formControlName="physicalBusinessAddress" class="form-control">
+        <div *ngIf="isFieldInvalid('physicalBusinessAddress')" class="error-message">
+          Physical Business Address is required
+        </div>
+      </div>
+
+      <!-- City A -->
+      <div class="form-group">
+        <label for="cityA">City A <span class="required">*</span></label>
+        <input type="text" id="cityA" formControlName="cityA" class="form-control">
+        <div *ngIf="isFieldInvalid('cityA')" class="error-message">
+          City A is required
+        </div>
+      </div>
+
+      <!-- State A -->
+      <div class="form-group">
+        <label for="stateA">State A <span class="required">*</span></label>
+        <input type="text" id="stateA" formControlName="stateA" class="form-control">
+        <div *ngIf="isFieldInvalid('stateA')" class="error-message">
+          State A is required
+        </div>
+      </div>
+
+      <!-- ZIP A -->
+      <div class="form-group">
+        <label for="zipA">ZIP A <span class="required">*</span></label>
+        <input type="text" id="zipA" formControlName="zipA" class="form-control">
+        <div *ngIf="isFieldInvalid('zipA')" class="error-message">
+          ZIP A is required
+        </div>
+      </div>
+
+      <!-- Phone Number A -->
+      <div class="form-group">
+        <label for="phoneNumberA">Phone Number A</label>
+        <input type="text" id="phoneNumberA" formControlName="phoneNumberA" class="form-control">
+      </div>
+
+      <!-- Product Utilization A -->
+      <div class="form-group">
+        <label for="productUtilizationA">Product Utilization A <span class="required">*</span></label>
+        <select id="productUtilizationA" formControlName="productUtilizationA" class="form-control">
+          <option value="A">Payment Check (A)</option>
+          <option value="B">Payment Check with AOAB (B)</option>
+        </select>
+        <div *ngIf="isFieldInvalid('productUtilizationA')" class="error-message">
+          Product Utilization A is required
+        </div>
+      </div>
+
+      <!-- Translated Response A -->
+      <div class="form-group">
+        <label for="translatedResponseA">Translated Response A <span class="required">*</span></label>
+        <select id="translatedResponseA" formControlName="translatedResponseA" class="form-control">
+          <option value="Y">Yes (Y)</option>
+          <option value="N">No (N)</option>
+        </select>
+        <div *ngIf="isFieldInvalid('translatedResponseA')" class="error-message">
+          Translated Response A is required
+        </div>
+      </div>
+
+      <!-- Primary Business Contact Name A -->
+      <div class="form-group">
+        <label for="primaryBusinessContactNameA">Primary Business Contact Name A</label>
+        <input type="text" id="primaryBusinessContactNameA" formControlName="primaryBusinessContactNameA" class="form-control">
+      </div>
+
+      <!-- Primary Business Contact Phone A -->
+      <div class="form-group">
+        <label for="primaryBusinessContactPhoneA">Primary Business Contact Phone A</label>
+        <input type="text" id="primaryBusinessContactPhoneA" formControlName="primaryBusinessContactPhoneA" class="form-control">
+      </div>
+
+      <!-- Primary Business Contact Email A -->
+      <div class="form-group">
+        <label for="primaryBusinessContactEmailA">Primary Business Contact Email A</label>
+        <input type="text" id="primaryBusinessContactEmailA" formControlName="primaryBusinessContactEmailA" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        {{ isEditMode ? 'Update' : 'Save' }}
+      </button>
+      <button type="button" class="btn btn-secondary flex items-center justify-center" (click)="resetForm()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+        Reset
+      </button>
+      <a [routerLink]="['/companies']" class="btn btn-light flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+        Cancel
+      </a>
+    </div>
+  </form>
+</div>

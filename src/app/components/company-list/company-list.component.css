@@ -1,0 +1,56 @@
+/* Using Tailwind classes - component specific styles */
+
+h1 {
+  @apply text-2xl font-bold text-truist-purple mb-6;
+}
+
+.search-container {
+  @apply flex justify-between items-center mb-6 flex-wrap;
+}
+
+.search-input {
+  @apply px-3 py-2 border border-gray-300 rounded w-full md:w-72 text-base focus:outline-none focus:ring-2 focus:ring-truist-purple focus:border-transparent;
+}
+
+.no-results {
+  @apply bg-truist-gray p-5 rounded text-center mt-5;
+}
+
+.table-responsive {
+  @apply overflow-x-auto;
+}
+
+.company-table {
+  @apply w-full border-collapse mt-5;
+}
+
+.company-table th,
+.company-table td {
+  @apply p-3 text-left border-b border-gray-200;
+}
+
+.company-table th {
+  @apply bg-truist-gray font-bold text-truist-dark-gray;
+}
+
+.company-table tr:hover {
+  @apply bg-gray-50;
+}
+
+.actions {
+  @apply whitespace-nowrap;
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    @apply flex-col;
+  }
+
+  .search-input {
+    @apply mb-3;
+  }
+
+  .btn {
+    @apply ml-0 mr-2 mb-2;
+  }
+}
