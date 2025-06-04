@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+/* Tailwind CSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles that extend Tailwind */
+@layer base {
+  body {
+    @apply font-truist bg-white text-truist-dark-gray;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded cursor-pointer text-sm inline-block transition-opacity;
+  }
+
+  .btn-primary {
+    @apply bg-truist-purple text-white;
+  }
+
+  .btn-info {
+    @apply bg-truist-blue text-white;
+  }
+
+  .btn-warning {
+    @apply bg-truist-yellow text-truist-dark-gray;
+  }
+
+  .btn-danger {
+    @apply bg-truist-red text-white;
+  }
+
+  .btn-light {
+    @apply bg-truist-gray text-truist-dark-gray border border-gray-300;
+  }
+
+  .btn-secondary {
+    @apply bg-truist-dark-gray text-white;
+  }
+
+  .btn:hover {
+    @apply opacity-90;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
