@@ -1,63 +1,99 @@
-/* Using Tailwind classes for detail component styling */
+/* Component styling */
 
 h1 {
-  @apply text-2xl font-bold text-truist-purple m-0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--truist-purple);
+  margin: 0;
 }
 
 h2 {
-  @apply text-lg font-semibold text-truist-blue mt-0 mb-4 pb-2 border-b border-gray-200;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--truist-blue);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .header {
-  @apply flex justify-between items-center mb-6 flex-wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .actions {
-  @apply flex gap-3 flex-wrap;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .company-details {
-  @apply bg-white rounded-lg shadow-md overflow-hidden;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
 }
 
 .detail-section {
-  @apply p-6 border-b border-gray-200;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .detail-section:last-child {
-  @apply border-b-0;
+  border-bottom: 0;
 }
 
 .detail-grid {
-  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
 }
 
 .detail-item {
-  @apply mb-4;
+  margin-bottom: 1rem;
 }
 
 .detail-label {
-  @apply font-semibold text-truist-dark-gray mb-1;
+  font-weight: 600;
+  color: var(--truist-dark-gray);
+  margin-bottom: 0.25rem;
 }
 
 .detail-value {
-  @apply text-base text-gray-800 mb-1;
+  font-size: 1rem;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
 }
 
 .detail-description {
-  @apply text-sm text-gray-500 italic;
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .detail-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
   .header {
-    @apply flex-col items-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .actions {
-    @apply mt-3;
-  }
-
-  .detail-grid {
-    @apply grid-cols-1;
+    margin-top: 0.75rem;
   }
 }

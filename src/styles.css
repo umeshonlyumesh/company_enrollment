@@ -1,49 +1,420 @@
-/* Tailwind CSS directives */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Custom CSS Variables */
+:root {
+  /* Truist brand colors */
+  --truist-purple: #44137C;
+  --truist-blue: #0073AF;
+  --truist-light-blue: #009CDE;
+  --truist-teal: #00A5B5;
+  --truist-green: #008755;
+  --truist-yellow: #FFB819;
+  --truist-orange: #FF7A00;
+  --truist-red: #D93F0B;
+  --truist-gray: #F2F2F2;
+  --truist-dark-gray: #4A4A4A;
+}
 
-/* Custom styles that extend Tailwind */
-@layer base {
-  body {
-    @apply font-truist bg-white text-truist-dark-gray;
+/* Base styles */
+body {
+  font-family: 'Truist Sans', sans-serif;
+  background-color: white;
+  color: var(--truist-dark-gray);
+}
+
+/* Button styles */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+
+.btn-primary {
+  background-color: var(--truist-purple);
+  color: white;
+}
+
+.btn-info {
+  background-color: var(--truist-blue);
+  color: white;
+}
+
+.btn-warning {
+  background-color: var(--truist-yellow);
+  color: var(--truist-dark-gray);
+}
+
+.btn-danger {
+  background-color: var(--truist-red);
+  color: white;
+}
+
+.btn-light {
+  background-color: var(--truist-gray);
+  color: var(--truist-dark-gray);
+  border: 1px solid #e2e8f0;
+}
+
+.btn-secondary {
+  background-color: var(--truist-dark-gray);
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Container */
+.container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
 
-@layer components {
-  .btn {
-    @apply px-4 py-2 rounded cursor-pointer text-sm inline-block transition-opacity;
-  }
-
-  .btn-primary {
-    @apply bg-truist-purple text-white;
-  }
-
-  .btn-info {
-    @apply bg-truist-blue text-white;
-  }
-
-  .btn-warning {
-    @apply bg-truist-yellow text-truist-dark-gray;
-  }
-
-  .btn-danger {
-    @apply bg-truist-red text-white;
-  }
-
-  .btn-light {
-    @apply bg-truist-gray text-truist-dark-gray border border-gray-300;
-  }
-
-  .btn-secondary {
-    @apply bg-truist-dark-gray text-white;
-  }
-
-  .btn:hover {
-    @apply opacity-90;
-  }
-
+@media (min-width: 1024px) {
   .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
+}
+
+/* Utility classes */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-base {
+  font-size: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-truist-purple {
+  color: var(--truist-purple);
+}
+
+.text-truist-blue {
+  color: var(--truist-blue);
+}
+
+.text-truist-red {
+  color: var(--truist-red);
+}
+
+.text-truist-dark-gray {
+  color: var(--truist-dark-gray);
+}
+
+.text-gray-500 {
+  color: #6b7280;
+}
+
+.text-gray-800 {
+  color: #1f2937;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.bg-truist-purple {
+  background-color: var(--truist-purple);
+}
+
+.bg-truist-blue {
+  background-color: var(--truist-blue);
+}
+
+.bg-truist-yellow {
+  background-color: var(--truist-yellow);
+}
+
+.bg-truist-red {
+  background-color: var(--truist-red);
+}
+
+.bg-truist-gray {
+  background-color: var(--truist-gray);
+}
+
+.bg-truist-dark-gray {
+  background-color: var(--truist-dark-gray);
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-b {
+  border-bottom-width: 1px;
+}
+
+.border-b-0 {
+  border-bottom-width: 0;
+}
+
+.border-gray-200 {
+  border-color: #e5e7eb;
+}
+
+.border-gray-300 {
+  border-color: #d1d5db;
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-colors {
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Focus styles */
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.focus\:ring-2:focus {
+  box-shadow: 0 0 0 2px rgba(68, 19, 124, 0.3); /* Simplified ring effect using truist-purple */
+}
+
+.focus\:border-transparent:focus {
+  border-color: transparent;
+}
+
+/* Combined focus styles for form elements */
+.form-control:focus {
+  outline: none;
+  border-color: transparent;
+  box-shadow: 0 0 0 2px rgba(68, 19, 124, 0.3);
+}
+
+/* Grid system */
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
+  .sm\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Width and height utilities */
+.w-full {
+  width: 100%;
+}
+
+.w-5 {
+  width: 1.25rem;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.h-5 {
+  height: 1.25rem;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
 }
